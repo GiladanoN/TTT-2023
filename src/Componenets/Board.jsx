@@ -17,29 +17,32 @@ export function Board() {
     }
   }
 
-  console.log(moves);
-
   const players = ['X', 'O'];
-  // const currentPlayer = () => players[moves.length % 2];
 
   const markSquare = (index) => {
-    // console.log(index);
     if (winner !== 'None') {
+      // todo: replace with onscreen msg
       return console.warn('Game is done, restart to play again...');
     }
     if (wasSqPlayed(index, moves)) {
+      // todo: replace with onscreen msg
       return console.warn('cannot play the same sqr twice...');
     }
+
+    // mark sq (current player's move) & udpate next player
     moves[index] = player;
     setMoves(moves);
     setPlayer(players[countMoves(moves) % 2]);
 
+    // verify & display if game is done (per normal rules)
     let result = checkGameDone(moves);
     if (result) {
       alert(result);
       setWinner(result);
     }
   }
+
+  // todo: consider "row" component instead of nested loops (many indents...)
 
   return (
     <div style={containerStyle} className="tttBoard">

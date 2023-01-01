@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import './App.css';
+import './Styles/App.css';
 import {TicTacToe} from './Componenets/TicTacToe';
 
 function App() {

@@ -25,10 +25,10 @@ export const useClickLogic = () => {
     // mark sq (current player's move) & udpate next player
     moves[index] = player;
     setMoves(moves);
-    setPlayer(players[countMoves(moves) % 2]);
+    setPlayer(players[countMoves() % 2]);
   
     // verify & display if game is done (per normal rules)
-    let result = checkGameDone(moves);
+    let result = checkGameDone();
     if (result) {
       alert(result);
       setWinner(result);

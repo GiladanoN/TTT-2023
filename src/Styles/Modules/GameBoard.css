@@ -1,0 +1,18 @@
+
+/* containerStyle */
+.containerStyle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* boardStyle */
+.boardStyle {
+  background-color: #eee;
+  width: 208px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border: 3px #eee solid;
+}

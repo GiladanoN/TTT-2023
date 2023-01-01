@@ -10,7 +10,7 @@ const checkGameDone = (moves) => {
     }
   }
 
-  if (countMoves(moves) === moves.length) { // all spots were played, no remaining moves to do...
+  if (countMoves() === moves.length) { // all spots were played, no remaining moves to do...
     return `Tie! - Game is over (=`;          
   }
 }

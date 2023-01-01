@@ -1,0 +1,11 @@
+
+/* buttonStyle */
+.buttonStyle {
+  margin-top: 15px;
+  margin-bottom: 16px;
+  width: 80px;
+  height: 40px;
+  background-color: #8acaca;
+  color: white;
+  font-size: 16px;
+}

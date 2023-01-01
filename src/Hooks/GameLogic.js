@@ -10,7 +10,7 @@ export function useGameLogic() {
   const [moves, setMoves] = movesState;
 
 
-  const checkGameDone = (moves) => {
+  const checkGameDone = () => {
   
     for (const possibleWin of winLines)
     {
@@ -23,7 +23,7 @@ export function useGameLogic() {
         return `Player ${movesForLine[0]} Wins!`;  // all 3 spots are from the same player!
     }
   
-    if (countMoves(moves) === moves.length)
+    if (countMoves() === moves.length)
       return `Tie! - Game is over (=`;  // all spots were played, no remaining moves to do...
     
   }
@@ -32,7 +32,8 @@ export function useGameLogic() {
     return moves[index] !== emptySqr;
   };
   
-  const countMoves = (moves) => {
+  const countMoves = () => {
+    if (!moves) return 0; // safe-guard
     return moves.filter(sq => sq !== emptySqr).length
   }
   

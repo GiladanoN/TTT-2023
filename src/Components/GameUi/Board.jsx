@@ -1,13 +1,17 @@
-import { boardStyle, containerStyle } from '../../Styles/Styles'
+// import { boardStyle, containerStyle } from '../../Styles/Styles'
+import { boardDimention } from '../../Logic/Constants';
 import { Row } from './Row';
+import '../../Styles/Modules/GameBoard.css';
 
 export function Board() {
 
+  const rowsArr = [...new Array(boardDimention).keys()];  // [0,1,2]
+
   return (
-    <div style={containerStyle} className="tttBoard">
-      <div style={boardStyle}>
+    <div className="tttBoard containerStyle">
+      <div className="boardStyle">
         {
-          [0,1,2].map(row => 
+          rowsArr.map(row => 
             <Row row={row} key={`row-${row}`} />
           )
         }

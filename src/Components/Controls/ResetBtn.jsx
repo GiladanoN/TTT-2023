@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { TicTacToeContext } from "../../Logic/DataContext";
-import { buttonStyle } from "../../Styles/Styles";
 import { Labels } from "../../Logic/Constants";
 import { useGameLogic, clearBoard } from "../../Hooks/GameLogic";
+import "../../Styles/Modules/Button.css";
 
 export function ResetBtn() {
 
@@ -12,8 +12,9 @@ export function ResetBtn() {
   const [winner, setWinner] = winnerState;
   const [moves, setMoves] = movesState;
 
-  const { isGameOverState } = useGameLogic();
-
+  const { isGameOverState, countMoves } = useGameLogic();
+  const disableBtn = (countMoves() === 0);
+  
   const resetGame = () => {
     if (isGameOverState() || window.confirm("Reset the game?")) {
       setPlayer(Labels.firstPlater);
@@ -23,7 +24,13 @@ export function ResetBtn() {
   }
 
   return (
-    <button style={buttonStyle} onClick={resetGame}>Reset</button>
+    <button
+      className="buttonStyle"
+      onClick={resetGame}
+      disabled={disableBtn}
+    >
+      Reset
+    </button>
   );
   
 }

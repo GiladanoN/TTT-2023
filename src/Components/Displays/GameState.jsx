@@ -1,7 +1,8 @@
 
 import { useContext } from 'react';
 import { TicTacToeContext } from '../../Logic/DataContext';
-import { messageStyle } from '../../Styles/Styles';
+// import { messageStyle } from '../../Styles/Styles';
+import '../../Styles/Modules/StateMessage.css';
 
 export function GameState() {
 
@@ -11,10 +12,10 @@ export function GameState() {
 
   return (
     <>
-      <div id="statusArea" className="status" style={messageStyle}>
+      <div id="statusArea" className="status messageStyle">
         Current player: <span>{player}</span>
       </div>
-      <div id="winnerArea" className="winner" style={messageStyle}>
+      <div id="winnerArea" className="winner messageStyle">
         Winner: <span>{winner}</span>
       </div>
     </>

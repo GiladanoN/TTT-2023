@@ -1,8 +1,8 @@
 
 import { useContext } from 'react';
 import { TicTacToeContext } from '../../Logic/DataContext';
-import { boxStyle } from '../../Styles/Styles'
 import { useClickLogic } from '../../Hooks/ClickLogic';
+import '../../Styles/Modules/Square.css'
 
 export function Square({index}) {
 
@@ -14,11 +14,10 @@ export function Square({index}) {
 
   return (
     <div
-      className="square"
-      style={boxStyle}
+      className="square boxStyle"
       onClick={() => markSelf(index)}
     >
-      {(curSqrMove) && `${curSqrMove}`}
+      {curSqrMove && (<span>{curSqrMove}</span>)}
     </div>
   );
 }

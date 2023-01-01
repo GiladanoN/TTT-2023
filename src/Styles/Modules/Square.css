@@ -1,0 +1,38 @@
+
+/* boxStyle */
+.boxStyle {
+  width:60px;
+  height:60px;
+  background-color: #ddd;
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  transition: background-color 150ms linear;
+}
+
+.boxStyle:hover {
+  background-color: #ccc;
+  transition: background-color 250ms linear;
+}
+
+.boxStyle:hover:empty {
+  background-color: #f4f4f4;
+}
+
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .boxStyle span {
+    animation: Tic-Tac-Spin infinite 20s linear;
+  }
+  @keyframes Tic-Tac-Spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+} */

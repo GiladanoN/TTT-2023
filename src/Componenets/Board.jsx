@@ -9,6 +9,14 @@ export function Board() {
   const [winner, setWinner] = useState('None')
   const [moves, setMoves] = useState([null,null,null,null,null,null,null,null,null]);
 
+  const resetGame = () => {
+    if (winner !== 'None' || window.confirm("Reset the game?")) {
+      setPlayer('X')
+      setWinner('None')
+      setMoves([null,null,null,null,null,null,null,null,null]);        
+    }
+  }
+
   console.log(moves);
 
   const players = ['X', 'O'];
@@ -59,7 +67,7 @@ export function Board() {
       }
         
       </div>
-      <button style={buttonStyle}>Reset</button>
+      <button style={buttonStyle} onClick={resetGame}>Reset</button>
 
     </div>
   );

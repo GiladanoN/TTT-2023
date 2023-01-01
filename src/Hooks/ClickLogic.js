@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { TicTacToeContext } from "../Logic/DataContext";
 import { players } from "../Logic/Constants";
 import { useGameLogic } from "../Hooks/GameLogic";
+import { showConfetti } from "../Components/Extra/showConfetti";
 
 export const useClickLogic = () => {
 
@@ -30,8 +31,10 @@ export const useClickLogic = () => {
     // verify & display if game is done (per normal rules)
     let result = checkGameDone();
     if (result) {
-      alert(result);
+      // alert(result);
+      console.log(result);
       setWinner(result);
+      showConfetti();
     }
   };
 

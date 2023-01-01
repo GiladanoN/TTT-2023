@@ -1,4 +1,3 @@
-// import { boardStyle, containerStyle } from '../../Styles/Styles'
 import { boardDimention } from '../../Logic/Constants';
 import { Row } from './Row';
 import '../../Styles/Modules/GameBoard.css';
@@ -9,7 +8,7 @@ export function Board() {
 
   return (
     <div className="tttBoard containerStyle">
-      <div className="boardStyle">
+      <div className={"boardStyle"}>
         {
           rowsArr.map(row => 
             <Row row={row} key={`row-${row}`} />

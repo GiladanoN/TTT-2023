@@ -9,11 +9,13 @@ export const TicTacToeProvider = props => {
 
   const playerState = useState(Labels.firstPlater);
   const winnerState = useState(Labels.noWinner);
+  const winningLineState = useState([]);
   const movesState = useState(clearBoard());
 
   const stateObj = {
     playerState,
     winnerState,
+    winningLineState,
     movesState,
   };
 

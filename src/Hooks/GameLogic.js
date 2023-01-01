@@ -4,8 +4,9 @@ import { winLines, emptySqr, Labels, boardDimention } from "../Logic/Constants";
 
 export function useGameLogic() {
 
-  const { playerState, winnerState, movesState } = useContext(TicTacToeContext);
+  const { playerState, winnerState, winningLineState, movesState } = useContext(TicTacToeContext);
   const [player, setPlayer] = playerState;
+  const [winLine, setWinLine] = winningLineState;
   const [winner, setWinner] = winnerState;
   const [moves, setMoves] = movesState;
 
@@ -19,8 +20,10 @@ export function useGameLogic() {
       if (movesForLine.includes(emptySqr))
         continue;  // not all sq's in 'line' were played.
   
-      if ( movesForLine[0] === movesForLine[1] && movesForLine[1] === movesForLine[2] )
+      if ( movesForLine[0] === movesForLine[1] && movesForLine[1] === movesForLine[2] ) {
+        setWinLine([...possibleWin]);
         return `Player ${movesForLine[0]} Wins!`;  // all 3 spots are from the same player!
+      }
     }
   
     if (countMoves() === moves.length)

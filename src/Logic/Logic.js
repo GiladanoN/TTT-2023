@@ -17,16 +17,12 @@ const checkGameDone = (moves) => {
 
 const wasSqPlayed = (index, moves) => {
   return moves[index] !== null;
-    // todo: consider making 'null' a const somewhere for maintainability
-    //       (may be replaced with another 'default' / 'empty' value in future)
 };
 
 const countMoves = (moves) => {
   return moves.filter(sq => sq !== null).length
 }
 
-const clearBoard = () => {
-  return new Array(9).fill(emptySqr);
-}
+
 
 export {checkGameDone, wasSqPlayed, countMoves, clearBoard};

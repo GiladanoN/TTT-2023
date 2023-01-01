@@ -11,6 +11,8 @@ const winLines = [
   [2, 4, 6],
 ];
 
+const boardDimention = 3;
+
 const players = ['X', 'O'];
 
 const emptySqr = null;
@@ -19,4 +21,4 @@ const Labels = {
   firstPlater: players[0],
 };
 
-export {winLines, players, emptySqr, Labels};
+export {winLines, players, emptySqr, Labels, boardDimention};

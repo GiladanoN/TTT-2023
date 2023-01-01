@@ -1,26 +1,29 @@
 import {Square} from './Square';
-import { useState, useRef, useEffect } from 'react';
-import {rowStyle, boardStyle, containerStyle, messageStyle, buttonStyle} from '../Styles/Styles'
-import {wasSqPlayed, countMoves, checkGameDone} from '../Logic/Logic';
+import { useState } from 'react';
+import {rowStyle, boardStyle, containerStyle, messageStyle, buttonStyle}
+  from '../Styles/Styles'
+import {wasSqPlayed, countMoves, checkGameDone, clearBoard} from '../Logic/Logic';
+import {Labels, players} from '../Logic/Constants';
 
 export function Board() {
 
-  const [player, setPlayer] = useState('X')
-  const [winner, setWinner] = useState('None')
-  const [moves, setMoves] = useState([null,null,null,null,null,null,null,null,null]);
+  const [player, setPlayer] = useState(Labels.firstPlater)
+  const [winner, setWinner] = useState(Labels.noWinner)
+  const [moves, setMoves] = useState(clearBoard());
 
   const resetGame = () => {
-    if (winner !== 'None' || window.confirm("Reset the game?")) {
-      setPlayer('X')
-      setWinner('None')
-      setMoves([null,null,null,null,null,null,null,null,null]);        
+    if ( winner !== Labels.noWinner ||  // game already done, or -
+         window.confirm("Reset the game?") ) // user comfimation for reset
+    {
+      setPlayer(Labels.firstPlater);
+      setWinner(Labels.noWinner);
+      setMoves(clearBoard());
     }
   }
 
-  const players = ['X', 'O'];
 
   const markSquare = (index) => {
-    if (winner !== 'None') {
+    if (winner !== Labels.noWinner) {
       // todo: replace with onscreen msg
       return console.warn('Game is done, restart to play again...');
     }
@@ -46,8 +49,12 @@ export function Board() {
 
   return (
     <div style={containerStyle} className="tttBoard">
-      <div id="statusArea" className="status" style={messageStyle}>Current player: <span>{player}</span></div>
-      <div id="winnerArea" className="winner" style={messageStyle}>Winner: <span>{winner}</span></div>
+      <div id="statusArea" className="status" style={messageStyle}>
+        Current player: <span>{player}</span>
+      </div>
+      <div id="winnerArea" className="winner" style={messageStyle}>
+        Winner: <span>{winner}</span>
+      </div>
       <div style={boardStyle}>
       {
         [0,1,2].map(row => {
